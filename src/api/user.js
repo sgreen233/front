@@ -26,13 +26,16 @@ function login({ account, password, rememberMe }) { // 记住密码
   })
 }
 
-function register({ username, password }) { //注册
+function register({ account, password, phone, name, jobId}) { //注册
   return request({
     url: '/sign/register',
     method: 'post',
     data: {
-      username: username,
+      username: account,
       password: password,
+      phone:phone,
+      name:name,
+      jobId:jobId,
     }
   })
 }

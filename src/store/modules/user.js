@@ -38,11 +38,15 @@ const actions = {
       })
     })
   },
+  //注册逻辑
   register({ commit }, userInfo) {
     userInfo.username = userInfo.username.trim()
     userInfo.password = userInfo.password.trim()
+    userInfo.phone = userInfo.phone.trim()
+    userInfo.name = userInfo.name.trim()
+    userInfo.jobId = userInfo.jobId.trim()
     return new Promise((resolve, reject) => {
-      userAPI.login(userInfo).then(resp => {
+      userAPI.register(userInfo).then(resp => {
         const token = resp.data
         setToken(token)
         resolve()
